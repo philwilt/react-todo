@@ -4,6 +4,8 @@ const validate = require('webpack-validator');
 
 const parts = require('./libs/parts');
 
+
+
 const TARGET = process.env.npm_lifecycle_event;
 const ENABLE_POLLING = process.env.ENABLE_POLLING;
 const PATHS = {
