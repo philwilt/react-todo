@@ -1,12 +1,12 @@
-import React from 'react';
-import uuid from 'uuid';
-import Notes from './Notes';
-import connect from '../libs/connect';
-import NoteActions from '../actions/NoteActions';
+import React from 'react'
+import uuid from 'uuid'
+import Notes from './Notes'
+import connect from '../libs/connect'
+import NoteActions from '../actions/NoteActions'
 
 class App extends React.Component {
   render() {
-    const {notes} = this.props;
+    const {notes} = this.props
 
     return (
       <div>
@@ -17,30 +17,30 @@ class App extends React.Component {
           onEdit={this.editNote}
           onDelete={this.deleteNote} />
       </div>
-    );
+    )
   }
 
   addNote = () => {
     this.props.NoteActions.create({
       id: uuid.v4(),
       task: 'Do some shit'
-    });
+    })
   }
 
   activateNoteEdit = (id) => {
-   this.props.NoteActions.update({id, editing: true});
+   this.props.NoteActions.update({id, editing: true})
   }
 
   editNote = (id, task) => {
-    const {NoteActions} = this.props;
+    const {NoteActions} = this.props
 
     NoteActions.update({id, task, editing: false})
   }
 
   deleteNote = (id, e) => {
-    e.stopPropagation();
+    e.stopPropagation()
 
-    this.props.NoteActions.delete(id);
+    this.props.NoteActions.delete(id)
   }
 }
 

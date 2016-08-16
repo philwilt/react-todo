@@ -1,16 +1,10 @@
-import uuid from 'uuid';
-
 import NoteActions from '../actions/NoteActions';
 
 export default class NoteStore {
   constructor() {
-    this.bindActions(NoteActions);
+    this.bindActions(NoteActions)
 
-    this.notes = [
-      {
-        id: uuid.v4(),
-        task: 'Troll AJ'
-      }]
+    this.notes = [];
   }
 
   create(note) {
@@ -32,6 +26,6 @@ export default class NoteStore {
   delete(id) {
     this.setState({
       notes: this.notes.filter(note => note.id !== id)
-    });
+    })
   }
 }
